@@ -1,18 +1,18 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import ShinyText from './ShinyText.jsx';
 
 function getPageFromPath(pathname) {
   const p = pathname.toLowerCase();
-  if (p.startsWith('/groundnut')) return 'groundnut';
-  if (p.startsWith('/cucumber')) return 'cucumber';
-  // Support explicit Green Gram path and legacy shorthand
-  if (p.startsWith('/green-gram') || p.startsWith('/gg')) return 'gg';
+  if (p.startsWith('/chilli-pepper')) return 'paddy';
   return 'paddy';
 }
 
 export default function App() {
   const [page, setPage] = useState(getPageFromPath(window.location.pathname));
+  const [showIntro, setShowIntro] = useState(true);
   const videoRef = useRef(null);
+  const introVideoRef = useRef(null);
 
   // Ensure the background video starts immediately when ready
   useEffect(() => {
@@ -32,24 +32,28 @@ export default function App() {
     }
   }, []);
 
+  // Autoplay intro video overlay on first load
+  useEffect(() => {
+    const v = introVideoRef.current;
+    if (!v) return;
+    v.muted = true; // required for autoplay on most browsers
+    const attemptPlay = () => {
+      const p = v.play();
+      if (p && typeof p.then === 'function') {
+        p.catch(() => {});
+      }
+    };
+    if (v.readyState >= 2) {
+      attemptPlay();
+    } else {
+      v.addEventListener('canplay', attemptPlay, { once: true });
+    }
+  }, []);
+
   // Sync document title and URL with current page
   useEffect(() => {
-    document.title =
-      page === 'paddy'
-        ? 'Paddy'
-        : page === 'groundnut'
-        ? 'Groundnut'
-        : page === 'cucumber'
-        ? 'Cucumber'
-        : 'Green Gram';
-    const desired =
-      page === 'paddy'
-        ? '/paddy'
-        : page === 'groundnut'
-        ? '/groundnut'
-        : page === 'cucumber'
-        ? '/cucumber'
-        : '/green-gram';
+    document.title = 'Chilli Pepper';
+    const desired = '/chilli-pepper';
     if (window.location.pathname !== desired) {
       window.history.replaceState({}, '', desired);
     }
@@ -71,16 +75,39 @@ export default function App() {
       {/* Gradient backdrop above video for subtle tint */}
       <div className="animated-gradient-overlay fixed inset-0 -z-30 opacity-20 pointer-events-none"></div>
 
+      {/* Intro video overlay (plays once on load) */}
+      <motion.div
+        className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: showIntro ? 1 : 0 }}
+        transition={{ duration: 0.6 }}
+        style={{ pointerEvents: showIntro ? 'auto' : 'none' }}
+      >
+        <video
+          ref={introVideoRef}
+          className="w-full h-full object-contain"
+          src="/intro%20take%204.mp4"
+          autoPlay
+          muted
+          playsInline
+          onEnded={() => setShowIntro(false)}
+        />
+      </motion.div>
+
       {/* Glassmorphism main panel */}
       <div className="relative z-10 w-full max-w-2xl rounded-3xl bg-white/25 border border-white/40 backdrop-blur-xl shadow-[0_20px_40px_rgba(0,0,0,0.12)] p-5 sm:p-6">
-        <h1 className="text-center text-2xl sm:text-3xl font-extrabold text-gray-900 tracking-wide mb-4">
-          Karnataka Agro Corporation
-        </h1>
+        <div className="text-center mb-4">
+          {/* Company name with shiny text effect */}
+          {/* eslint-disable-next-line react/jsx-no-comment-textnodes */}
+          <div className="text-2xl sm:text-3xl font-extrabold tracking-wide">
+            <ShinyText text="Nutreefy" speed={3} />
+          </div>
+        </div>
 
-        {/* Image header replacing dial visuals */}
-        <div className="rounded-2xl bg-white/20 border border-white/40 px-4 py-6 sm:px-6 sm:py-8 text-gray-900">
+        {/* Logo video header */}
+        <div className="rounded-2xl bg-white border border-white/60 px-4 py-6 sm:px-6 sm:py-8 text-gray-900">
           <div className="flex items-center justify-center">
-            <img src="/logoo.png" alt="Karnataka Agro Corporation" className="h-24 w-24 sm:h-28 sm:w-28 object-contain rounded-md img-fade-in" />
+            <video src="/logo.mp4" className="w-64 sm:w-80 h-auto object-contain rounded-md" autoPlay loop muted playsInline />
           </div>
         </div>
 
@@ -93,22 +120,23 @@ export default function App() {
               </div>
               <div className="rounded-xl bg-white/20 border border-white/40 px-4 py-3 text-gray-900">
                 <div className="text-gray-700 text-xs">2. Title of Bio Stimulant</div>
-                <div className="text-lg">Potassium humate 49% (Powder)</div>
+                <div className="text-lg">Humic acid 5% (powder)</div>
               </div>
               <div className="rounded-xl bg-white/20 border border-white/40 px-4 py-3 text-gray-900">
                 <div className="text-gray-700 text-xs">3. Composition</div>
                 <ul className="text-sm mt-1 space-y-1 list-disc pl-5">
-                  <li>(i) Humic Acid per cent by weight, minimum: 21</li>
-                  <li>(ii) pH (1% aqueous solution): 6.0 – 8.0</li>
+                  <li>Humic Acid percent by weight minimum: 5</li>
+                  <li>pH (1% aqueous solution): 4.0–5.0</li>
+                  <li>Specific Gravity: 1.0</li>
                 </ul>
               </div>
               <div className="rounded-xl bg-white/20 border border-white/40 px-4 py-3 text-gray-900">
                 <div className="text-gray-700 text-xs">4. Crops</div>
-                <div className="text-lg">Paddy</div>
+                <div className="text-lg">Chilli pepper</div>
               </div>
               <div className="rounded-xl bg-white/20 border border-white/40 px-4 py-3 text-gray-900">
                 <div className="text-gray-700 text-xs">5. Dosage</div>
-                <div className="text-lg">One soil application at 1 kg/ha</div>
+                <div className="text-lg">Three foliar application at 0.5g/ltr</div>
               </div>
             </div>
           </motion.div>
