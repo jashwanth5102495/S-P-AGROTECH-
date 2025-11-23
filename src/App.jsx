@@ -228,7 +228,7 @@ export default function App() {
   const displayNames = {
     'Humus Carbon ++': 'NUTREE HUMCAR',
     'Humizyme-PR': 'NUTREE KHUM',
-    'Black Gold-PR (L)': 'NUTREE NUTREE HUMFUL',
+    'Black Gold-PR (L)': 'NUTREE HUMFUL',
     'Humizyme – PR (L)': 'NUTREE HUMOL',
     'Black Gold – PR': 'NUTREE HUMIC',
     'Sea Vite Gold – PR': 'NUTREE SEAVIT',
@@ -244,12 +244,11 @@ export default function App() {
     'Jadoo Ultra - PR': 'NUTREE GOLD',
   };
 
-  const displayName = displayNames[product] ?? product.replace(/\d+/g, '');
-
   const urlAliases = {
     'NUTREE HUMCAR': 'Humus Carbon ++',
     'NUTREE KHUM': 'Humizyme-PR',
     'NUTREE NUTREE HUMFUL': 'Black Gold-PR (L)',
+    'NUTREE HUMFUL': 'Black Gold-PR (L)',
     'NUTREE HUMOL': 'Humizyme – PR (L)',
     'NUTREE HUMIC': 'Black Gold – PR',
     'NUTREE SEAVIT': 'Sea Vite Gold – PR',
@@ -261,6 +260,7 @@ export default function App() {
   };
 
   const canonicalProduct = urlAliases[product] ?? product;
+  const displayName = displayNames[canonicalProduct] ?? canonicalProduct.replace(/\d+/g, '');
 
   const content = productData[canonicalProduct];
 
@@ -378,11 +378,6 @@ export default function App() {
           {/* Details template for selected product (values intentionally left empty) */}
           <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
             <div className="mt-6 grid grid-cols-1 gap-4">
-              {/* Made by badge card */}
-              <div className="rounded-xl bg-white/25 border border-white/50 px-4 py-3 text-gray-900">
-                <div className="text-gray-700 text-xs">Made by</div>
-                <div className="text-lg">Jasnav It Solutions</div>
-              </div>
 
               <div className="rounded-xl bg-white/20 border border-white/40 px-4 py-3 text-gray-900">
                 <div className="text-gray-700 text-xs">Product Name</div>
