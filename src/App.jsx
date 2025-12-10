@@ -7,6 +7,7 @@ export default function App() {
   const [showDetails, setShowDetails] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [product, setProduct] = useState(null);
+  const [hasLogoVideo, setHasLogoVideo] = useState(false);
 
   useEffect(() => {
     const oldSlug = '/HUMICID';
@@ -23,6 +24,12 @@ export default function App() {
       window.history.replaceState(null, '', desiredSlug);
     }
     document.title = `${found.brand} — Product Information`;
+  }, []);
+
+  useEffect(() => {
+    fetch('/vidd.mp4', { method: 'HEAD' })
+      .then(res => setHasLogoVideo(res.ok))
+      .catch(() => setHasLogoVideo(false));
   }, []);
 
 
@@ -58,8 +65,21 @@ export default function App() {
 
       {/* Header box with logo video */}
       <header className="pt-0 sm:pt-0 mt-6 sm:mt-8 pb-6 text-center select-none">
-        <div className="mx-auto w-[340px] sm:w-[440px] h-[160px] sm:h-[200px] rounded-2xl bg-white/8 border border-white/20 backdrop-blur-md overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_30px_60px_rgba(0,0,0,0.3)]">
-          <img src="/lo.png" className="w-full h-full object-contain rounded-2xl bg-white/8 backdrop-blur-md ring-1 ring-white/20 shadow-inner" alt="Logo" loading="eager" decoding="async" />
+        <div className="mx-auto w-[320px] sm:w-[500px] max-w-[92vw] h-[200px] sm:h-[260px] rounded-2xl bg-white/8 border border-white/20 backdrop-blur-md overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_30px_60px_rgba(0,0,0,0.3)]">
+          {hasLogoVideo ? (
+            <video
+              src="/vidd.mp4"
+              className="w-full h-full object-contain rounded-2xl bg-white/8 backdrop-blur-md ring-1 ring-white/20 shadow-inner"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              poster="/new.jpeg"
+            />
+          ) : (
+            <img src="/lo.png" className="w-full h-full object-contain rounded-2xl bg-white/8 backdrop-blur-md ring-1 ring-white/20 shadow-inner" alt="Logo" loading="eager" decoding="async" />
+          )}
         </div>
         <div className="mt-2 text-xs sm:text-sm text-[#cfc191] tracking-wide">Bio‑Stimulant Registration Details</div>
       </header>
