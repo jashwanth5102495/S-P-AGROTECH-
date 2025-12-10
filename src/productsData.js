@@ -1,108 +1,42 @@
 export const GAZETTE = 'SO:3922(E), Dated:12-09-2024';
 
 export const PRODUCTS = [
-  {
-    brand: 'HUMICID',
-    specification: 'Humic Acid 5% (Powder)',
-    dosage: ['Three Foliar Application at 0.5 g/l'],
-    crops: ['Chilli Pepper'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'HUMICID +',
-    specification: 'Potassium Humate 49% (Powder)',
-    dosage: ['One Soil Application at 1 kg/ha'],
-    crops: ['Paddy'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'HUMICID ++',
-    specification: 'Humic and Fulvic Acid 25.05% (Liquid)',
-    dosage: ['Five Equal Soil Drench application at 10 l/ha'],
-    crops: ['Tomato'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'SEA EXTRACT',
-    specification: 'Ascophyllum nodosum 15% (Liquid)',
-    dosage: ['Two Foliar applications at 1.5 l/ha'],
-    crops: ['Green Gram'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'BOT EXTRACT',
-    specification: 'Spirulina 10% (Liquid)',
-    dosage: ['Two Foliar applications Sprays at 750 ml/ha'],
-    crops: ['Chilli', 'Tomato'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'OR MIX (NUTRIENT MOBILIZER)',
-    specification: 'Mixture of Seaweed extract: Humic, Fulvic Acid, Amino Acids and Vitamins (Liquid)',
-    dosage: [
-      'Two Foliar Applications at 2 l/ha',
-    ],
-    crops: ['Cotton'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'N CHEM (PRO-H)',
-    specification: 'Bacteria biomass hydrolysate (Amino Acids 2%) Liquid',
-    dosage: [
-      'Three Foliar Applications at 3.75 l/ha',
-      'Three Foliar Applications at 2.5 l/ha',
-      'Three Foliar Applications at 2.5 l/ha',
-      'Four Foliar Sprays at 1.25 l/ha to 2.0 l/ha Depending on canopy size',
-    ],
-    crops: ['Chilli', 'Soyabean', 'Cotton', 'Grape'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'N CHEM (Micro - Cell)',
-    specification: 'Microbial Cell (Methylococcus): 1*10^9 cfu/g (Powder)',
-    dosage: [
-      'Three Applications (One Seedling dip and two foliar applications) at 40 g/ha',
-      'Two foliar applications at 40 g/ha',
-    ],
-    crops: ['Paddy', 'Maize'],
-    gazette: GAZETTE,
-  },
-  {
-    brand: 'N CHEM (Micro - Con)',
-    specification: 'Microbial Consortium 1*10^7 cfu/g',
-    dosage: ['Single Soil Application just before planting at 7.5 kg/ha as basal dose'],
-    crops: ['Onion'],
-    gazette: GAZETTE,
-  },
+  { brand: 'SP ROOT POWER', specification: '', dosage: [], crops: [], gazette: GAZETTE },
+  { brand: 'SP MAGIC', specification: 'Humic substances 6% (Liquid)', crops: ['Soybean'], dosage: ['Two foliar applications at 1250 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP SOIL STRUCTURE', specification: 'Humic acid 19.6 % (Liquid)', crops: ['Tomato'], dosage: ['Two foliar applications at 7.5 litre/ha'], gazette: GAZETTE },
+  { brand: 'SP BIO BOOSTER', specification: 'Seaweed Extract: Kappaphycus alvarezii 24% (Liquid)', crops: ['Cucumber'], dosage: ['One foliar application at 2 ml/l'], gazette: GAZETTE },
+  { brand: 'SP BIO PARI', specification: 'Ascophyllum nodosum 7% (Liquid)', crops: ['Tomato'], dosage: ['One soil application as drenching', 'Three foliar applications at 2.5 l/ha'], gazette: GAZETTE },
+  { brand: 'SP SUPERGOLD', specification: 'Seaweed (Sargassum wightii) extract 10 % (Liquid)', crops: ['Chilli'], dosage: ['Four foliar application at 2000 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP SUPER UPTAKE', specification: 'Seaweed (Ascophyllum nodosum) extract 99.52 % (Liquid)', crops: ['Grapes', 'Cotton'], dosage: ['Grapes: Three foliar applications at 300 ml/ha', 'Cotton: Three foliar applications at 300 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP ULTRACANE SPECIAL', specification: 'Botanical Extract: Adhatoda vasica extract 2% (Liquid)', crops: ['Chilli', 'Tomato'], dosage: ['Chilli: Three foliar applications at 1000 ml/ha', 'Tomato: Three foliar applications at 1250 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP PLANT FLOWERING', specification: 'Cytokinin (Zea mays kernel) 0.2% (Liquid)', crops: ['Capsicum'], dosage: ['Three foliar applications at 750 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP TARZAN', specification: 'Mixed Formulation: Mixture of seaweed extract and algal extract (Liquid)', crops: ['Brinjal'], dosage: ['Two foliar applications at 500 mL/ha'], gazette: GAZETTE },
+  { brand: 'SP BOSS', specification: 'Mixture of Humic acid and Seaweed extract (Liquid)', crops: ['Tomato'], dosage: ['Three foliar applications at 1.25 l/ha'], gazette: GAZETTE },
+  { brand: 'SP SUKRUTH', specification: 'Mixture of Botanical extract and Seaweed extract (Liquid)', crops: ['Tomato'], dosage: ['Three foliar applications at 3.75 l/ha'], gazette: GAZETTE },
+  { brand: 'SP RUDRA', specification: 'Mixture of Seaweed extract, Protein Hydrolysate and Humic acid (Liquid)', crops: ['Onion', 'Paddy', 'Potato', 'Chilli'], dosage: ['Onion: Three foliar sprays at 500 ml/ha', 'Paddy: Three foliar sprays at 500 ml/ha', 'Potato: Three foliar sprays at 500 ml/ha', 'Chilli: Three foliar sprays at 500 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP BOOMI BOOSTER', specification: 'Sargassum tenerrimum 1.2% (Granules)', crops: ['Tomato', 'Rice'], dosage: ['Rice: Two soil applications at 15 kg/ha', 'Tomato: Two soil applications at 17.5 kg/ha'], gazette: GAZETTE },
+  { brand: 'SP TIGER', specification: 'Humate 7.15 % (Liquid)', crops: ['Rice', 'Chilli'], dosage: ['Rice: Three foliar applications at 1250 ml/ha', 'Chilli: Three foliar applications at 1500 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP GROWTH BOOSTER', specification: 'Bacterial biomass hydrolysate (Amino acids 2%) (Liquid)', crops: ['Grape', 'Chilli', 'Soyabean', 'Cotton'], dosage: ['Grape: Four foliar sprays at 1.25 l/ha to 2.0 l/ha depending on canopy size', 'Chilli: Three foliar applications at 3.75 l/ha', 'Soyabean: Three foliar applications at 2.5 l/ha', 'Cotton: Three foliar applications at 2.5 l/ha'], gazette: GAZETTE },
+  { brand: 'SP SIZER', specification: 'Protein Hydrolysate 18% (Animal source) (Liquid)', crops: ['Paddy', 'Chilli', 'Tomato', 'Grape', 'Cotton', 'Blackgram'], dosage: ['Paddy: Two foliar applications at 1200 ml/ha', 'Chilli: Four foliar applications at 1000 ml/ha', 'Tomato: Three foliar applications at 1000 ml/ha', 'Grape: Two foliar applications at 1000 ml/ha', 'Cotton: One foliar application at 625 ml/ha', 'Black gram: Three foliar applications at 750 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP POWERGOLD', specification: 'L-Pyroglutamic acid (Pidolic acid) 10 % (Liquid)', crops: ['Grape'], dosage: ['Four foliar applications at 1000 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP NANOPOWER', specification: 'Homobrassinolide- 0.04% (Liquid)', crops: ['Tea', 'Grape', 'Groundnut', 'Soybean', 'Paddy', 'Cotton', 'Tomato'], dosage: ['Tea: Three foliar applications at 250 ml/ha', 'Grape: Two foliar applications at 1000 ml/ha', 'Groundnut: Two foliar applications at 250 ml/ha', 'Soybean: Two foliar applications at 250 ml/ha', 'Paddy: Two foliar applications at 250 ml/ha', 'Cotton: Two foliar applications at 250 ml/ha', 'Tomato: Two foliar applications at 250 ml/ha'], gazette: GAZETTE },
+  { brand: 'SP BOOMI SHAKTHI', specification: 'Seaweed (Sargassum wightii) extract 5 % (Granuler)', crops: ['Chilli'], dosage: ['Four soil applications at 20 kg/ha'], gazette: GAZETTE },
 ];
 
 export const SLUG_TO_BRAND = {
-  'HUMICID': 'HUMICID',
-  'HUMICID+': 'HUMICID +',
-  'HUMICID%2B': 'HUMICID +',
-  'HUMICID ': 'HUMICID +',
-  'HUMICID++': 'HUMICID ++',
-  'HUMICID%2B%2B': 'HUMICID ++',
-  'HUMICID  ': 'HUMICID ++',
-  'SEA EXTRACT': 'SEA EXTRACT',
-  'BOT EXTRACT': 'BOT EXTRACT',
-  'OR MIX (NUTRIENT MOBILIZER)': 'OR MIX (NUTRIENT MOBILIZER)',
-  'OR MIX(NUTRIENT MOBILIZER)': 'OR MIX (NUTRIENT MOBILIZER)',
-  'OR%20MIX(NUTRIENT%20MOBILIZER)': 'OR MIX (NUTRIENT MOBILIZER)',
-  'N CHEM (PRO-H)': 'N CHEM (PRO-H)',
-  'N CHEM (Micro - Cell)': 'N CHEM (Micro - Cell)',
-  'N CHEM (Micro - Con)': 'N CHEM (Micro - Con)',
+  'SP ROOT POWER': 'SP ROOT POWER',
+  'SP%20ROOT%20POWER': 'SP ROOT POWER',
+  'HUMICID': 'SP ROOT POWER',
 };
 
 export function findProductBySlug(slug) {
   const decoded = decodeURIComponent(slug);
-  // Normalize: some hosts may translate '+' to space in path
   const normalized = decoded.replace(/\+/g, ' ');
   const brand = SLUG_TO_BRAND[normalized] || SLUG_TO_BRAND[slug] || normalized;
   const found = PRODUCTS.find(p => p.brand.toUpperCase() === brand.toUpperCase());
-  return found || PRODUCTS.find(p => p.brand === 'HUMICID');
+  return found || PRODUCTS[0];
 }
 
 export function findProductByBrand(brand) {
-  return PRODUCTS.find(p => p.brand === brand);
+  return PRODUCTS.find(p => p.brand === brand) || PRODUCTS[0];
 }

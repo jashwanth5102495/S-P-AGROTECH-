@@ -9,14 +9,19 @@ export default function App() {
   const [product, setProduct] = useState(null);
 
   useEffect(() => {
-    const oldSlug = '/Humus%20Carbon%20%2B%2B';
-    const newSlug = '/HUMICID';
-    if (window.location.pathname === oldSlug) {
+    const oldSlug = '/HUMICID';
+    const newSlug = '/SP%20ROOT%20POWER';
+    const current = window.location.pathname;
+    if (current === oldSlug || current === '/' || current === '') {
       window.history.replaceState(null, '', newSlug);
     }
     const rawPath = window.location.pathname.replace(/^\//, '');
     const found = findProductBySlug(rawPath);
     setProduct(found);
+    const desiredSlug = `/${encodeURIComponent(found.brand)}`;
+    if (window.location.pathname !== desiredSlug) {
+      window.history.replaceState(null, '', desiredSlug);
+    }
     document.title = `${found.brand} — Product Information`;
   }, []);
 
@@ -46,7 +51,7 @@ export default function App() {
         </div>
       )}
 
-      <img className="absolute inset-0 -z-30 w-full h-full object-cover" src="/try1.png" alt="Background" loading="eager" fetchPriority="high" decoding="async" />
+      <img className="fixed inset-0 -z-30 w-full h-full object-cover" src="/try1.png" alt="Background" loading="eager" fetchPriority="high" decoding="async" />
 
       {/* top spacer */}
       <div className="h-4 sm:h-6" />
@@ -54,7 +59,7 @@ export default function App() {
       {/* Header box with logo video */}
       <header className="pt-0 sm:pt-0 mt-6 sm:mt-8 pb-6 text-center select-none">
         <div className="mx-auto w-[340px] sm:w-[440px] h-[160px] sm:h-[200px] rounded-2xl bg-white/8 border border-white/20 backdrop-blur-md overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.25)] transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-[0_30px_60px_rgba(0,0,0,0.3)]">
-          <video src="/logo.mp4" className="w-full h-full object-contain rounded-2xl bg-white/8 backdrop-blur-md ring-1 ring-white/20 shadow-inner" autoPlay muted loop playsInline preload="metadata" poster="/logoo.png" />
+          <img src="/lo.png" className="w-full h-full object-contain rounded-2xl bg-white/8 backdrop-blur-md ring-1 ring-white/20 shadow-inner" alt="Logo" loading="eager" decoding="async" />
         </div>
         <div className="mt-2 text-xs sm:text-sm text-[#cfc191] tracking-wide">Bio‑Stimulant Registration Details</div>
       </header>
@@ -83,7 +88,7 @@ export default function App() {
               </div>
               <div className="flex-1">
                 <div className="text-[#d9c98f] text-sm">Gazette Notification:</div>
-                <div className="text-base sm:text-lg">{product?.gazette || 'SO:3922(E), Dated:12-09-2024'}</div>
+                <div className="text-base sm:text-lg">SO:3922(E), Dated:12-09-2024</div>
               </div>
             </div>
           </StarBorder>
@@ -94,8 +99,8 @@ export default function App() {
                 <span className="text-lg">⚗️</span>
               </div>
               <div className="flex-1">
-                <div className="text-[#d9c98f] text-sm">Title of Bio Stimulant:</div>
-                <div className="text-base sm:text-lg">{product?.specification || 'Humic Acid 5% (Powder)'}</div>
+                <div className="text-[#d9c98f] text-sm">Tittle of Bio Stimulant:</div>
+                <div className="text-base sm:text-lg">{product?.specification || ''}</div>
               </div>
             </div>
           </StarBorder>
@@ -107,7 +112,7 @@ export default function App() {
               </div>
               <div className="flex-1">
                 <div className="text-[#d9c98f] text-sm">Composition</div>
-                <div className="mt-1 text-sm sm:text-base text-white">{product?.specification || 'Humic Acid 5% (Powder)'}</div>
+                <div className="mt-1 text-sm sm:text-base text-white"></div>
               </div>
             </div>
           </StarBorder>
@@ -119,7 +124,7 @@ export default function App() {
               </div>
               <div className="flex-1">
                 <div className="text-[#d9c98f] text-sm">Crops:</div>
-                <div className="text-base sm:text-lg">{(product?.crops || ['Chilli Pepper']).join(', ')}</div>
+                <div className="text-base sm:text-lg">{(product?.crops || []).join(', ')}</div>
               </div>
             </div>
           </StarBorder>
@@ -131,15 +136,7 @@ export default function App() {
               </div>
               <div className="flex-1">
                 <div className="text-[#d9c98f] text-sm">Dosage:</div>
-                {product?.dosage?.length ? (
-                  <ul className="mt-1 space-y-1 text-sm sm:text-base">
-                    {product.dosage.map((d, i) => (
-                      <li key={i} className="text-white/90">{d}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  <div className="text-base sm:text-lg">three foliar application at 0.5 g/L</div>
-                )}
+                <div className="text-base sm:text-lg">{(product?.dosage || []).join(' | ')}</div>
               </div>
             </div>
           </StarBorder>
@@ -150,24 +147,22 @@ export default function App() {
               </div>
               <div className="flex-1">
                 <div className="text-[#d9c98f] text-sm">Manufactured By:</div>
-                <div className="text-white/90 text-sm sm:text-base">SUSTHIRA BIO ORGANICS LLP</div>
-                <div className="text-white/80 text-xs sm:text-sm mt-1 leading-snug">
-                  No.1, Aswath Narayana Road,<br />
-                  Near Akshaya Nagar, Tirumala Nagar,<br />
-                  Attur, Yelahanka, Bangalore -560064
-                </div>
+                <div className="text-white/90 text-sm sm:text-base">SP Agrotech Ltd, Plot No.G34, Katphal, M.I.D.C., Baramati, Pune, Maharashtra - 413102</div>
 
                 <div className="mt-3 text-[#d9c98f] text-sm">Marketed By:</div>
-                <div className="text-white/90 text-sm sm:text-base">N CHEM SCIENCES</div>
-                <div className="text-white/80 text-xs sm:text-sm mt-1 leading-snug">
-                  MPL No.14-1-20/7/18 9 26 27 & 36<br />
-                  38<br />
-                  Sadashiva Phase-III, Eklaspur Village<br />
-                  Bypass Manchalapur Road<br />
-                  Raichur - 584101<br />
-                  Raichur Dist<br />
-                  Karnataka State
-                </div>
+                <div className="text-white/90 text-sm sm:text-base">CTS NO. 1120/4 complex lndi Road appo :Neelkanteshwar Kalyan Mantap Vijayapur -586101</div>
+              </div>
+            </div>
+          </StarBorder>
+          <StarBorder as="div" className="w-full" color="cyan" speed="5s" thickness={2}>
+            <div className="flex items-start">
+              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e8d8a6]/25 text-[#e8d8a6] mr-3 shadow-inner">
+                <span className="text-lg">📞</span>
+              </div>
+              <div className="flex-1">
+                <div className="text-[#d9c98f] text-sm">Customer Care</div>
+                <div className="text-white/90 text-sm sm:text-base">Maharashtra customer care no. 9129613434</div>
+                <div className="text-white/90 text-sm sm:text-base">Karnataka customer care no. 8446998943</div>
               </div>
             </div>
           </StarBorder>
