@@ -1,7 +1,7 @@
 export const GAZETTE = 'SO:3922(E), Dated:12-09-2024';
 
 export const PRODUCTS = [
-  { brand: 'SP ROOT POWER', specification: '', dosage: [], crops: [], gazette: GAZETTE },
+  { brand: 'SP ROOT POWER', specification: 'Humic Acid 5 % (Powder)', crops: ['Chilli Pepper'], dosage: ['Three foliar application at 0.5 g/l.'], gazette: GAZETTE },
   { brand: 'SP MAGIC', specification: 'Humic substances 6% (Liquid)', crops: ['Soybean'], dosage: ['Two foliar applications at 1250 ml/ha'], gazette: GAZETTE },
   { brand: 'SP SOIL STRUCTURE', specification: 'Humic acid 19.6 % (Liquid)', crops: ['Tomato'], dosage: ['Two foliar applications at 7.5 litre/ha'], gazette: GAZETTE },
   { brand: 'SP BIO BOOSTER', specification: 'Seaweed Extract: Kappaphycus alvarezii 24% (Liquid)', crops: ['Cucumber'], dosage: ['One foliar application at 2 ml/l'], gazette: GAZETTE },
