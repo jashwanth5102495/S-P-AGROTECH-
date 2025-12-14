@@ -67,47 +67,50 @@ export default function App() {
 
       {/* Main panel */}
       <main className="mx-auto max-w-5xl px-4 sm:px-6 pb-16">
-        {/* Title of Bio Stimulant FIRST */}
+        {/* Gazette Notification FIRST */}
         <section className="mt-2">
-          <StarBorder as="div" className="w-full" color="cyan" speed="5s" thickness={2}>
-            <div className="flex items-start">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e8d8a6]/25 text-[#e8d8a6] mr-3 shadow-inner">
-                <span className="text-lg">⚗️</span>
-              </div>
-              <div className="flex-1">
-                <div className="text-[#d9c98f] text-sm">Tittle of Bio Stimulant:</div>
-                <div className="text-base sm:text-lg">{product?.specification || ''}</div>
-              </div>
-            </div>
-          </StarBorder>
-        </section>
-
-        {/* Product name card SECOND */}
-        <section className="mx-auto max-w-3xl mt-6">
-          <div className="relative rounded-2xl bg-white/8 border border-white/20 backdrop-blur-md p-4 sm:p-6 flex items-center shadow-[0_20px_40px_rgba(0,0,0,0.25)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-0.5">
-            <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#e8d8a6]/20 text-[#e8d8a6] mr-4 shadow-inner">
-              <span className="text-2xl">🌿</span>
+          <div className="rounded-xl border border-white/25 bg-black/20 p-4 sm:p-5 flex items-center">
+            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e8d8a6]/25 text-[#e8d8a6] mr-3">
+              <span className="text-lg">📰</span>
             </div>
             <div className="flex-1">
-              <div className="text-[#d9c98f] text-xs sm:text-sm">Product Name:</div>
-              <div className="text-white text-xl sm:text-2xl font-semibold tracking-wide">{product?.brand || 'HUMICID'}</div>
+              <div className="text-white text-sm">Gazette Notification:</div>
+              <div className="text-white text-base sm:text-lg">{product?.gazette || 'SO:3922(E), Dated: 12th September ,2024'}</div>
             </div>
           </div>
         </section>
 
-        {/* Info grid with StarBorder */}
-        <section className="mt-8 grid grid-cols-1 gap-4">
+        {/* Title of Bio Stimulant SECOND */}
+        <section className="mt-6">
+          <div className="rounded-xl border border-white/25 bg-black/20 p-4 sm:p-5 flex items-center">
+            <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e8d8a6]/25 text-[#e8d8a6] mr-3">
+              <span className="text-lg">⚗️</span>
+            </div>
+            <div className="flex-1">
+              <div className="text-white text-sm">Tittle of Bio Stimulant:</div>
+              <div className="text-white text-base sm:text-lg">{product?.specification || ''}</div>
+            </div>
+          </div>
+        </section>
+
+        {/* Product Name THIRD */}
+        <section className="mx-auto max-w-3xl mt-6">
           <StarBorder as="div" className="w-full" color="cyan" speed="5s" thickness={2}>
-            <div className="flex items-start">
-              <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-[#e8d8a6]/25 text-[#e8d8a6] mr-3 shadow-inner">
-                <span className="text-lg">📰</span>
+            <div className="relative rounded-2xl bg-white/8 border border-white/20 backdrop-blur-md p-4 sm:p-6 flex items-center shadow-[0_20px_40px_rgba(0,0,0,0.25)] hover:shadow-[0_30px_60px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:-translate-y-0.5">
+              <div className="flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-[#e8d8a6]/20 text-[#e8d8a6] mr-4 shadow-inner">
+                <span className="text-2xl">🌿</span>
               </div>
               <div className="flex-1">
-                <div className="text-[#d9c98f] text-sm">Gazette Notification:</div>
-                <div className="text-base sm:text-lg">{product?.gazette || 'SO:3922(E), Dated: 12th September ,2024'}</div>
+                <div className="text-[#d9c98f] text-xs sm:text-sm">Product Name:</div>
+                <div className="text-white text-xl sm:text-2xl font-semibold tracking-wide">{product?.brand || 'HUMICID'}</div>
               </div>
             </div>
           </StarBorder>
+        </section>
+
+        {/* Info grid with StarBorder */}
+        <section className="mt-8 grid grid-cols-1 gap-4">
+          {/* Gazette moved to top */}
 
 
           <StarBorder as="div" className="w-full" color="cyan" speed="5s" thickness={2}>
